@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>weather-app</title>
+    <link rel="stylesheet" href="../public/style.css" />
+  </head>
+  <body>
+    <div class="find-city">
+        <form action="" method="post">
+            <input type="text" name="city" id="input-city" placeholder="find weather " />
+            <input type="submit" value="search" id="btn" />
+        </form>
+    </div>
+    <div class="weather-out">
+      <h2>weather</h2>
+      <div class="weather-inner">
+        <div class="w-pic">
+
+        <% if(apidata.clouds.all>=50){ %>
+          <img src="../public/cloudy.jpg" alt="" id="image" />
+       <% } %> 
+       
+         <% if(apidata.clouds.all==0){%>
+          <img src="../public/sunny.jpg" alt="" id="image" />
+          <% } %>
+
+         <% if(apidata.clouds.all>0 && apidata.clouds.all< 50){%>
+          <img src="../public/suncloud.jpg" alt="" id="image" />
+          <% } %>
+
+          <div class="s-desc">
+            <p>
+              <b>NOW</b> <br />
+              <%=apidata.main.temp%>&degC <br />
+              <div class="cloud ">
+                <h5>Cloud: <%=apidata.clouds.all %>%</h5>
+              </div>
+              <%=apidata.weather[0].description%>
+            </p>
+            <span>Feels Like:  <%=apidata.main.feels_like%>&degC</span>
+            <br>
+       
+             <br>
+          </div>
+        </div>
+
+        <div class="details">
+            <br>
+          <div class="w-location det">
+            <h4>Location:</h4>&nbsp; &nbsp;
+            <hr /> &nbsp; &nbsp;
+            <h4>city: <%=apidata.name%>  <hr> <hr> country:<%=apidata.sys.country%></h4>
+          </div>
+          <hr>
+          <br>
+          <div class="c-time">
+            <h4>Current Time:</h4>
+            <h4><%=time%></h4>
+          </div>
+          <hr />
+          <br>
+          <div class="pressure">
+            <h4>Pressure:</h4>
+            <h4><%=apidata.main.pressure%> mbar</h4>
+          </div>
+          <hr /> <br>
+          <div class="humidity ">
+            <h4>Humidity:</h4>
+            <h4><%=apidata.main.humidity%>%</h4>
+          </div>
+          <hr> <br>
+
+     
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
