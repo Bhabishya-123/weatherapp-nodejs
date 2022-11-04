@@ -1,9 +1,7 @@
 //Nodejs code is here
-require("dotenv").config();
 var express = require("express");
 var requests = require("requests");
 var app = express();
-const port = process.env.PORT || 5000;
 
 var bodyParser = require("body-parser");
 
@@ -67,4 +65,4 @@ app.post("/", urlencodedParser, function (req, res) {
 });
 
 //this express app server listen on port 5000
-app.listen(port);
+app.listen(5000);
