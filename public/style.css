@@ -14,7 +14,7 @@
     top: 12%;
     left: 15%;
     border-radius: 8%;
-    animation: move 4s ease-in-out infinite alternate;
+    animation: move 4s linear infinite alternate;
 }
 @keyframes move {
     0% {background:rgb(148, 145, 140); border:8px rgb(53, 87, 126) solid;background-image: url(../public/cl.jpg);background-size: cover;}
@@ -29,14 +29,31 @@ h2{
 .weather-inner{
     display: flex;
     border:4px grey solid;
-    height:100%;
+    height:400px;
     width:100%;
     position:absolute;
     top: 15%;
     left: 15%;
     border-radius: 5%;
     background:rgb(52, 57, 83);
+    
 }
+@media screen and (max-width: 500px) {
+    .weather-inner {
+        width:135%;
+        top: 8%;
+        left: 5%;
+        display: flex;
+      flex-direction: column;
+      gap:10%;
+      height:660px;
+      justify-content: center;
+      align-items: center;
+    }
+    .details{
+        margin-top:20%;
+    }
+  }
 
 #input-city{
     border-radius: 5%;
@@ -55,7 +72,7 @@ h2{
     border-radius: 8%;
     background-color: rgb(113, 110, 121);
     height:20%;
-    width:10%;
+    width:100px;
     padding:1%;
     text-decoration: none;
     border:none;
@@ -81,14 +98,11 @@ h2{
 #image{
     width: 70%;
     height: 80%;
-    animation: run 4s linear infinite alternate-reverse;
+    animation: run 6s linear infinite alternate;
 }
 @keyframes run {
-    0%{margin-right: 20%;}
-    25% {margin-right:10%}
-    50%{margin-right:20%}
-    75%{margin-left:20%}
-    100%{margin-left:20%}
+    0%{transform: translateX(-10px);}
+    100%{transform: translateX(48px);}
   }
   .s-desc p{
       font-size:large
